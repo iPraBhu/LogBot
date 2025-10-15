@@ -1,0 +1,23 @@
+2025-10-15T10:00:00.000Z INFO [api] Starting API server on port 3000
+2025-10-15T10:00:01.123Z INFO [api] Database connection established
+2025-10-15T10:00:02.456Z INFO [auth] Authentication service initialized
+2025-10-15T10:00:05.789Z WARN [api] Rate limiting enabled: 100 requests per minute
+2025-10-15T10:01:00.000Z INFO [api] Health check endpoint registered at /health
+2025-10-15T10:01:15.234Z ERROR [db] Failed to connect to Redis: Connection timeout
+2025-10-15T10:01:16.567Z WARN [db] Falling back to in-memory cache
+2025-10-15T10:02:00.000Z INFO [api] First user request received
+2025-10-15T10:02:01.890Z DEBUG [auth] Validating JWT token for user_123
+2025-10-15T10:02:02.012Z INFO [auth] User authentication successful: user_123
+2025-10-15T10:02:05.345Z INFO [api] GET /users/123 - 200 OK (45ms)
+2025-10-15T10:03:00.000Z WARN [api] High memory usage detected: 85%
+2025-10-15T10:03:30.678Z ERROR [api] Request failed: Invalid user ID format
+2025-10-15T10:03:31.901Z DEBUG [api] Returning 400 Bad Request
+2025-10-15T10:04:00.000Z INFO [worker] Background job processor started
+2025-10-15T10:04:15.234Z INFO [worker] Processing job: email_notification_567
+2025-10-15T10:04:17.567Z ERROR [email] SMTP connection failed: Authentication error
+2025-10-15T10:04:18.890Z WARN [worker] Job retry scheduled in 30 seconds
+2025-10-15T10:05:00.000Z INFO [api] Cache hit rate: 78%
+2025-10-15T10:05:30.123Z FATAL [db] Database connection lost
+2025-10-15T10:05:31.456Z ERROR [api] Service unavailable: Database offline
+2025-10-15T10:05:32.789Z INFO [api] Initiating graceful shutdown
+2025-10-15T10:05:45.012Z INFO [api] All connections closed, server stopped

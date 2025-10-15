@@ -1,0 +1,12 @@
+{"timestamp":"2025-10-15T10:00:00.000Z","level":"INFO","service":"web","host":"server-01","message":"Web server starting","request_id":"req_001"}
+{"timestamp":"2025-10-15T10:00:01.234Z","level":"INFO","service":"web","host":"server-01","message":"Static assets loaded","request_id":"req_002","duration_ms":1234}
+{"timestamp":"2025-10-15T10:00:15.567Z","level":"DEBUG","service":"web","host":"server-01","message":"Routing table initialized","routes":42}
+{"timestamp":"2025-10-15T10:01:00.000Z","level":"INFO","service":"web","host":"server-01","message":"GET /","request_id":"req_003","user_agent":"Mozilla/5.0","ip":"192.168.1.100"}
+{"timestamp":"2025-10-15T10:01:02.890Z","level":"INFO","service":"web","host":"server-01","message":"Response sent","request_id":"req_003","status":200,"duration_ms":2890}
+{"timestamp":"2025-10-15T10:01:30.123Z","level":"WARN","service":"web","host":"server-01","message":"Slow request detected","request_id":"req_004","duration_ms":5000,"threshold_ms":3000}
+{"timestamp":"2025-10-15T10:02:00.456Z","level":"ERROR","service":"web","host":"server-01","message":"Static file not found","request_id":"req_005","file":"/assets/missing.css","status":404}
+{"timestamp":"2025-10-15T10:02:30.789Z","level":"INFO","service":"web","host":"server-02","message":"Load balancer health check","status":"healthy"}
+{"timestamp":"2025-10-15T10:03:00.012Z","level":"DEBUG","service":"web","host":"server-02","message":"Session created","session_id":"sess_abc123","user_id":"user_456"}
+{"timestamp":"2025-10-15T10:03:15.345Z","level":"WARN","service":"web","host":"server-02","message":"Rate limit warning","ip":"192.168.1.200","requests_per_minute":95,"limit":100}
+{"timestamp":"2025-10-15T10:04:00.678Z","level":"ERROR","service":"web","host":"server-02","message":"Database query timeout","query":"SELECT * FROM users","duration_ms":30000}
+{"timestamp":"2025-10-15T10:04:30.901Z","level":"FATAL","service":"web","host":"server-02","message":"Critical error: Out of memory","memory_usage":"98%","available_mb":128}
