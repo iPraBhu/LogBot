@@ -1,13 +1,14 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Search, BarChart3, Bookmark, Settings, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useAppStore } from '@/store';
 
 const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { 
     sidebarCollapsed, 
-    setSidebarCollapsed, 
-    activeTab, 
-    setActiveTab,
+    setSidebarCollapsed,
     totalEntries,
     loadedFiles,
   } = useAppStore();
@@ -17,27 +18,35 @@ const Sidebar: React.FC = () => {
       id: 'discover', 
       label: 'Discover', 
       icon: Search,
-      description: 'Search and explore logs'
+      description: 'Search and explore logs',
+      path: '/discover'
     },
     { 
       id: 'dashboards', 
       label: 'Dashboards', 
       icon: BarChart3,
-      description: 'Analytics and visualizations'
+      description: 'Analytics and visualizations',
+      path: '/dashboards'
     },
     { 
       id: 'saved-views', 
       label: 'Saved Views', 
       icon: Bookmark,
-      description: 'Saved queries and filters'
+      description: 'Saved queries and filters',
+      path: '/saved-views'
     },
     { 
       id: 'settings', 
       label: 'Settings', 
       icon: Settings,
-      description: 'App configuration'
+      description: 'App configuration',
+      path: '/settings'
     },
   ];
+
+  const isActive = (path: string) => {
+    return location.pathname === path || (location.pathname === '/' && path === '/discover');
+  };
 
   return (
     <aside className={`
@@ -79,15 +88,15 @@ const Sidebar: React.FC = () => {
         <nav className="space-y-1">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeTab === item.id;
+            const active = isActive(item.path);
             
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id as any)}
+                onClick={() => navigate(item.path)}
                 className={`
                   w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-left
-                  ${isActive 
+                  ${active 
                     ? 'bg-accent text-accent-foreground' 
                     : 'hover:bg-accent hover:text-accent-foreground text-muted-foreground'
                   }

@@ -9,20 +9,42 @@ const SearchBar: React.FC = () => {
   const [selectedSuggestion, setSelectedSuggestion] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Mock field suggestions
+  // Enhanced field suggestions with common error patterns
   const fieldSuggestions = [
     'level:ERROR',
     'level:WARN', 
     'level:INFO',
     'level:DEBUG',
+    'level:TRACE',
     'file:',
     'service:',
     'host:',
     'message:',
     'timestamp:',
+    'exception:',
+    'stack:',
+    'trace:',
+    'error:',
     'AND',
     'OR',
     'NOT',
+    // Common error patterns
+    '"Exception"',
+    '"Error"',
+    '"Failed"',
+    '"Timeout"',
+    '"Connection"',
+    '"Stack trace"',
+    '"NullPointerException"',
+    '"IllegalArgumentException"',
+    '"OutOfMemoryError"',
+    '"SQLException"',
+    '"RuntimeException"',
+    // Useful queries
+    'level:ERROR AND service:',
+    'level:ERROR OR level:WARN',
+    'message:"Exception" AND timestamp:>',
+    'file:*.java AND level:ERROR'
   ];
 
   const updateSuggestions = (text: string) => {
